@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 中文乱码处理UTF-8,GBK,GB2312 -->
+	<constant name="struts.il8n.encoding" value="UTF-8"></constant>
+	<!-- 国际化文件名称的前缀 -->
+	<constant name="struts.custom.i18n.resources" value="globalMessages"></constant>
+	<!-- 限制上传文件大小,默认大小为2MB -->
+	<constant name="struts.multipart.maxSize" value="1000000000" />
+	<!--默认struts2的访问action类的后缀是.action -->
+	<constant name="struts.action.extension" value=","></constant>
+	<!--  去除浏览器缓存，开发阶段设置成false会比较方便 -->
+	<constant name="struts.serve.static.browserCache" value="false"></constant>
+	<!--  struts.xml修改后系统自动重新加载，开发阶段会比较方便，但是生产环境最好是false -->
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<!-- 修改主题样式 -->
+	<constant name="struts.ui.theme" value="simple"/>
+	<!-- 加载系统默认拦截器 -->
+	<include file="struts-default.xml"/>
+	<package name="ssh" extends="struts-default">
+		<action name="loginAction_*" class="com.ht.action.LoginAction" method="{1}">
+			<result name="login">/login.jsp</result>
+			<result name="success">/mainFrame.html</result>
+			<result name="exit">/login.jsp</result>
+			<result name="upload">/listProcessDefinition.jsp</result>
+			<result name="deployList">/listProcessDefinition.jsp</result>
+			<result name="input">/apply.jsp</result>
+			<result name="myTask">/myTask.jsp</result>
+			<result name="adult">/adult.jsp</result>
+			<result name="myJob">/myJob.jsp</result>
+			<result name="comment">/comment.jsp</result>
+			<result name="image">/image.jsp</result>
+			
+			
+		</action>
+	</package>
+</struts>
