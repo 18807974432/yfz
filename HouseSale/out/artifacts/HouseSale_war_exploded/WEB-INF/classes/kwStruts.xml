@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="market" extends="json" namespace="/" strict-method-invocation="false">
+        <action name="guideAction" class="com.ht.action.GuideAction">
+            <result name="guide">/guide.jsp</result>
+            <result name="list" type="redirectAction">guideAction!list.action</result>
+        </action>
+        <action name="discountsAction" class="com.ht.action.DiscountsAction">
+            <result name="success">/discounts.jsp</result>
+            <result name="list" type="redirectAction">discountsAction!list.action</result>
+        </action>
+        <!--<action name="schemeFlowAction" class="com.ht.action.SchemeFlowAction">
+            <result name="success">/schemeFlow.jsp</result>
+            <result name="list" type="redirectAction">schemeFlowAction!list.action</result>
+        </action>-->
+    </package>
+</struts>

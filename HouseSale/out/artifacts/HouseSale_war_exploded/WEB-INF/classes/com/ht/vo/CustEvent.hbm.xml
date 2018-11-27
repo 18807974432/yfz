@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.CustEvent" table="CustEvent">
+        <id name="eventId" column="eventId" type="int">
+            <generator class="native"/>
+        </id>
+        <property name="custid" column="custid" type="int"/>
+        <property name="salePercent" column="salePercent" type="java.lang.String" length="30"/>
+        <property name="chance" column="chance" type="java.lang.String" length="20"/>
+        <property name="eventtypeid" column="eventtypeid" type="java.lang.String" length="30"/>
+        <property name="eventTime" column="eventTime" type="java.util.Date"/>
+        <property name="description" column="description" type="java.lang.String" length="100"/>
+    </class>
+</hibernate-mapping>

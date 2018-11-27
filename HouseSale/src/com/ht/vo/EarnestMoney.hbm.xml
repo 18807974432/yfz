@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.EarnestMoney" table="EarnestMoney">
+        <id name="earnestId" column="EarnestId">
+            <generator class="native"/>
+        </id>
+        <!--<property name="buyId" column="buyId"/>-->
+        <!--<property name="ticketNo" column="ticketNo"/>-->
+        <property name="ticketFlow" column="ticketFlow"/>
+        <property name="paidtypeid" column="Paidtypeid"/>
+        <property name="paidMoney" column="paidMoney"/>
+        <property name="paidTime" column="paidTime"/>
+        <property name="isTranslate" column="isTranslate"/>
+        <property name="transMoney" column="TransMoney"/>
+        <property name="status" column="status"/>
+        <property name="userid" column="userid"/>
+        <property name="oprtime" column="oprtime"/>
+        <property name="invalid" column="invalid"/>
+
+        <many-to-one name="buyHourse" column="buyId" class="com.ht.vo.BuyHourse" ></many-to-one>
+        <many-to-one name="ticket" column="ticketNo" class="com.ht.vo.Ticket"></many-to-one>
+    </class>
+</hibernate-mapping>

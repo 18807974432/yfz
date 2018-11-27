@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.HourseInfo" table="HourseInfo">
+        <id name="hourseId" column="hourseId">
+            <generator class="native"/>
+        </id>
+        <property name="termId" column="termId"/>
+        <property name="hourseName" column="hourseName"/>
+        <property name="hourseType" column="hourseType"/>
+        <property name="termType" column="termType"/>
+        <property name="fitment" column="fitment"/>
+        <property name="unitid" column="unitid"/>
+        <property name="floor" column="floor"/>
+        <property name="hourseno" column="hourseno"/>
+        <property name="contractno" column="contractno"/>
+        <property name="saleState" column="saleState"/>
+        <property name="direction" column="direction"/>
+        <property name="struts" column="struts"/>
+        <property name="buildstyle" column="buildstyle"/>
+        <property name="modelname" column="modelname"/>
+        <property name="lift" column="lift"/>
+        <property name="isbalance" column="isbalance"/>
+        <property name="saleArea" column="saleArea"/>
+        <property name="inArea" column="inArea"/>
+        <property name="buildArea" column="buildArea"/>
+        <property name="viewArea" column="viewArea"/>
+        <property name="downArea" column="downArea"/>
+        <property name="publicArea" column="publicArea"/>
+        <property name="tableArea" column="tableArea"/>
+        <property name="outArea" column="outArea"/>
+        <property name="usePercent" column="usePercent"/>
+        <property name="facttableArea" column="facttableArea"/>
+        <property name="factinArea" column="factinArea"/>
+        <property name="factbuildArea" column="factbuildArea"/>
+        <property name="factviewArea" column="factviewArea"/>
+        <property name="factdownArea" column="factdownArea"/>
+        <property name="factpublicArea" column="factpublicArea"/>
+        <property name="unitPrice" column="unitPrice"/>
+        <property name="inunitPrice" column="inunitPrice"/>
+        <property name="buildunitPrice" column="buildunitPrice"/>
+        <property name="totalPrice" column="totalPrice"/>
+        <property name="oldtotalPrice" column="oldtotalPrice"/>
+        <property name="oldunitPrice" column="oldunitPrice"/>
+        <property name="unitlowPrice" column="unitlowPrice"/>
+        <property name="totallowPrice" column="totallowPrice"/>
+        <property name="saleTime" column="saleTime"/>
+        <property name="doorno" column="doorno"/>
+        <property name="discount" column="discount"/>
+        <property name="discountPrice" column="discountPrice"/>
+        <property name="commisionPercent" column="commisionPercent"/>
+        <property name="commisionMoney" column="commisionMoney"/>
+        <property name="commisionpaid" column="commisionpaid"/>
+        <property name="custid" column="custid"/>
+        <property name="description" column="description"/>
+
+    </class>
+</hibernate-mapping>

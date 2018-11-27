@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.TermInfo" table="TermInfo">
+        <id name="termId" column="termId" type="int">
+            <generator class="native"></generator>
+        </id>
+        <property name="projectId" column="projectId" type="int"/>
+        <property name="termName" column="termName" type="java.lang.String"/>
+        <property name="termCode" column="termCode" type="java.lang.String"/>
+        <property name="termType" column="termType" type="java.lang.String"/>
+        <property name="prid" column="prid" type="java.lang.String"/>
+        <property name="prPlanTime" column="prPlanTime" type="java.util.Date"/>
+        <property name="prFactTime" column="prFactTime" type="java.util.Date"/>
+        <property name="auditno" column="auditno" type="java.lang.String"/>
+        <property name="contractno" column="contractno" type="java.lang.String"/>
+        <property name="saleArea" column="saleArea" type="java.lang.Double"/>
+        <property name="useArea" column="useArea" type="java.lang.Double"/>
+        <property name="viewArea" column="viewArea" type="java.lang.Double"/>
+        <property name="startTime" column="startTime" type="java.util.Date"/>
+        <property name="endTime" column="endTime" type="java.util.Date"/>
+        <property name="saleTime" column="saleTime" type="java.util.Date"/>
+        <property name="liveTime" column="liveTime" type="java.util.Date"/>
+        <property name="hourseCount" column="hourseCount" type="java.lang.Double"/>
+        <property name="salePrice" column="salePrice" type="java.lang.Double"/>
+        <property name="isPaid" column="isPaid" type="java.lang.String"/>
+        <property name="hourseHeight" column="hourseHeight" type="java.lang.Double"/>
+        <property name="floorcount" column="floorcount" type="int"/>
+        <property name="buildHeight" column="buildHeight" type="java.lang.Double"/>
+        <property name="perCount" column="perCount" type="int"/>
+        <property name="developer" column="developer" type="java.lang.String"/>
+        <property name="buildadultno" column="buildadultno" type="java.lang.String"/>
+        <property name="buildtype" column="buildtype" type="java.lang.String"/>
+        <property name="description" column="description" type="java.lang.String"/>
+        <many-to-one name="pinfo" class="com.ht.vo.ProjectInfo" update="false" insert="false" column="projectId" lazy="false"></many-to-one>
+        <many-to-one name="project" class="com.ht.vo.ProjectInfo" update="false" insert="false" column="projectId" lazy="false"></many-to-one>
+        <set name="hour" cascade="all" lazy="false" inverse="true">
+            <key column="hourseId"></key>
+            <one-to-many class="com.ht.vo.HourseInfo"/>
+        </set>
+    </class>
+</hibernate-mapping>

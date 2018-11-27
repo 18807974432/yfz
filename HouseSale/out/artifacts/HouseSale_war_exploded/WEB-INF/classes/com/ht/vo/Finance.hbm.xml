@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.Finance" table="finance">
+        <id name="financeId" column="financeId"/>
+        <property name="buyId" column="buyId"/>
+        <property name="ticketNo" column="ticketNo"/>
+        <property name="ticketFlow" column="ticketFlow"/>
+        <property name="paidtypeid" column="Paidtypeid"/>
+        <property name="paidMoney" column="paidMoney"/>
+        <property name="paidPerson" column="paidPerson"/>
+        <property name="paidsortid" column="paidsortid"/>
+        <property name="inbank" column="inbank"/>
+        <property name="bankAccount" column="bankAccount"/>
+        <property name="outbank" column="outbank"/>
+        <property name="warrant" column="warrant"/>
+        <property name="paidTime" column="paidTime"/>
+        <property name="paidinTime" column="paidinTime"/>
+        <property name="invalid" column="invalid"/>
+        <property name="userid" column="userid"/>
+        <property name="oprtime" column="oprtime"/>
+        <property name="oprType" column="oprType"/>
+    </class>
+</hibernate-mapping>

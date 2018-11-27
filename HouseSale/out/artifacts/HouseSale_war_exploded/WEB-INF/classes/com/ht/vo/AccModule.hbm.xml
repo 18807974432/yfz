@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.ht.vo.AccModule" table="AccModule">
+        <id name="id" type="int">
+            <generator class="native"></generator>
+        </id>
+        <property name="userid" type="int"/>
+        <many-to-one name="module" class="com.ht.vo.Module" column="moduleid" lazy="false">
+        </many-to-one>
+    </class>
+</hibernate-mapping>

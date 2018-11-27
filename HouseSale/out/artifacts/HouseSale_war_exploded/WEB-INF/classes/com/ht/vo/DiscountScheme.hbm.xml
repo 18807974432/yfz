@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.DiscountScheme" table="DiscountScheme" >
+        <id name="dicountid" column="dicountid" type="int">
+            <generator class="native"/>
+        </id>
+        <property name="projectid" column="projectid"/>
+        <property name="discountname" column="discountname"/>
+        <property name="startTime" column="startTime"/>
+        <property name="invalidTime" column="invalidTime"/>
+        <property name="createTime" column="createTime"/>
+        <property name="createPerson" column="createPerson"/>
+        <property name="formula" column="formula"/>
+        <property name="demo" column="demo"/>
+
+    </class>
+</hibernate-mapping>

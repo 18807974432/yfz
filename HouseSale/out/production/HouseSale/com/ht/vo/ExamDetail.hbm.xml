@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.ExamDetail" table="ExamDetail">
+        <id name="detailid" column="detailid"/>
+        <property name="reseachid" column="reseachid"/>
+        <property name="examid" column="examid"/>
+        <property name="unitid" column="unitid"/>
+        <property name="unitName" column="unitName"/>
+        <property name="unitvalue" column="unitvalue"/>
+    </class>
+</hibernate-mapping>

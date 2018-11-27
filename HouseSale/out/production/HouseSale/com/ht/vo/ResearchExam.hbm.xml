@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.ResearchExam" table="researchExam" >
+        <id name="reseachid" column="reseachid" type="int" >
+            <generator class="native"></generator>
+        </id>
+        <property name="examName" column="examName" type="java.lang.String"/>
+        <property name="invalid" column="invalid" type="java.lang.String"/>
+        <property name="orderid" column="orderid" type="int"/>
+        <property name="examCount" column="examCount" type="int"/>
+        <property name="description" column="description" type="java.lang.String"/>
+        <property name="userid" column="userid" type="java.lang.String"/>
+        <property name="oprtime" column="oprtime" type="java.util.Date"/>
+        <many-to-one name="proj" column="projectid" class="com.ht.vo.ProjectInfo" insert="true" update="true" lazy="false"></many-to-one>
+    </class>
+</hibernate-mapping>

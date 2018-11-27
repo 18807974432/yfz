@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.HouseEvent" table="HouseEvent">
+        <id name="houseEventId" column="houseEventId"/>
+        <property name="houseId" column="houseId"/>
+        <property name="eventType" column="eventType"/>
+        <property name="expire" column="expire"/>
+        <property name="expireTime" column="expireTime"/>
+        <property name="userid" column="userid"/>
+        <property name="oprtime" column="oprtime"/>
+        <property name="demo" column="demo"/>
+        <property name="buyId" column="buyId"/>
+    </class>
+</hibernate-mapping>

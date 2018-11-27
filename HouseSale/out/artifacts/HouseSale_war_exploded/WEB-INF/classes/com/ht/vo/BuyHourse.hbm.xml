@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.BuyHourse" table="BuyHourse">
+        <id name="buyId" type="int">
+            <generator class="native"></generator>
+        </id>
+        <property name="custid" column="custid" type="int"/>
+        <property name="hourseid" column="hourseid" type="int"/>
+        <property name="psid" column="psid" type="int"/>
+        <property name="processid" column="processid" type="int"/>
+        <property name="processname" column="processname" type="java.lang.String"/>
+        <property name="dicountid" column="dicountid" type="int"/>
+        <property name="unitPrice" column="unitPrice" type="java.lang.Double"/>
+        <property name="totalMoney" column="totalMoney" type="java.lang.Double"/>
+        <property name="bankid" column="bankid" type="java.lang.String"/>
+        <property name="firstMoney" column="firstMoney" type="java.lang.Double"/>
+        <property name="bankmoney" column="bankmoney" type="java.lang.Double"/>
+        <property name="bankAccrual" column="bankAccrual" type="java.lang.Double"/>
+        <property name="bankYear" column="bankYear" type="int"/>
+        <property name="bankPercent" column="bankPercent" type="java.lang.Double"/>
+        <property name="lawyer" column="lawyer" type="java.lang.String"/>
+        <property name="buyTime" column="buyTime" type="java.util.Date"/>
+        <property name="salePerson" column="salePerson" type="java.lang.String"/>
+        <property name="userid" column="userid" type="java.lang.String"/>
+        <property name="oprtime" column="oprtime" type="java.util.Date"/>
+        <property name="invalid" column="invalid" type="java.lang.String"/>
+        <property name="hourseid2" column="hourseid2" type="int"/>
+        <property name="oprType" column="oprType" type="java.lang.String"/>
+        <property name="signTime" column="signTime" type="java.util.Date"/>
+        <property name="bankTime" column="bankTime" type="java.util.Date"/>
+        <property name="cashMoney" column="cashMoney" type="java.lang.Double"/>
+        <many-to-one name="discount" class="com.ht.vo.Discount" lazy="false" column="dicountid" not-found="ignore" insert="false" update="false"></many-to-one>
+        <many-to-one name="customerInfo" class="com.ht.vo.CustomerInfo" lazy="false" column="custid" insert="false" update="false"></many-to-one>
+        <many-to-one name="hourseInfo" class="com.ht.vo.HourseInfo" lazy="false" column="hourseid" insert="false" update="false"></many-to-one>
+        <set name="work" cascade="all" lazy="false" inverse="true">
+            <key column="buyId"></key>
+            <one-to-many class="com.ht.vo.WorkProcess"/>
+        </set>
+    </class>
+</hibernate-mapping>

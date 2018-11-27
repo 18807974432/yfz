@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="cus" extends="struts-default" namespace="/" strict-method-invocation="false">
+       <action name="cusAction" class="com.ht.action.CustomAction">
+           <result name="success">customerInfo.jsp</result>
+           <result name="input">customadd.jsp</result>
+           <result name="list" type="redirectAction">cusAction!list.action</result>
+       </action>
+        <action name="custEvent" class="com.ht.action.custEventAction">
+           <result name="success">cusEventList.jsp</result>
+           <result name="list" type="redirectAction">custEvent!list.action</result>
+        </action>
+        <action name="Eventtype" class="com.ht.action.EventtypeAction">
+            <result name="success">EventTypeInfo.jsp</result>
+            <result name="list" type="redirectAction">Eventtype!list.action</result>
+        </action>
+        <action name="houseInfo" class="com.ht.action.houseInfoAction">
+
+        </action>
+        <action name="Cusplan" class="com.ht.action.CusplanAction">
+           <result name="input">custPlan.jsp</result>
+        </action>
+        <action name="Eamil" class="com.ht.action.EmailAction">
+            <result name="success">email.jsp</result>
+            <result name="input">emailadd.jsp</result>
+            <result name="list" type="redirectAction">Eamil!list.action</result>
+        </action>
+     </package>
+</struts>

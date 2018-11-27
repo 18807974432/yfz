@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.CustomerInfo" table="CustomerInfo">
+        <id name="custId" column="custId" type="int">
+            <generator class="native"/>
+        </id>
+
+        <property name="custname" column="custname" type="java.lang.String"/>
+        <property name="custnamecode" column="custnamecode" type="java.lang.String"/>
+        <property name="custtype" column="custtype" type="java.lang.String"/>
+        <property name="sex" column="sex" type="java.lang.String"/>
+        <property name="chargeperson" column="chargeperson" type="java.lang.String"/>
+        <property name="country" column="country" type="java.lang.String"/>
+        <property name="nation" column="nation" type="java.lang.String"/>
+        <property name="babyaddr" column="babyaddr" type="java.lang.String"/>
+        <property name="cardname" column="cardname" type="java.lang.String"/>
+        <property name="cardno" column="cardno" type="java.lang.String"/>
+        <property name="degree" column="degree" type="java.lang.String"/>
+        <property name="custstate" column="custstate" type="java.lang.String"/>
+        <property name="age" column="age" type="java.lang.String"/>
+        <property name="custVip" column="custVIP" type="java.lang.String"/>
+        <property name="birthday" column="birthday" type="java.util.Date"/>
+        <property name="signdate" column="signdate" type="java.util.Date"/>
+        <property name="signAddr" column="signAddr" type="java.lang.String"/>
+        <property name="familyTel" column="familyTel" type="java.lang.String"/>
+        <property name="primaryTel" column="primaryTel" type="java.lang.String"/>
+        <property name="officeTel" column="officeTel" type="java.lang.String"/>
+        <property name="mobile" column="mobile" type="java.lang.String"/>
+        <property name="fax" column="fax" type="java.lang.String"/>
+        <property name="postcode" column="postcode" type="java.lang.String"/>
+        <property name="email" column="email" type="java.lang.String"/>
+        <property name="addr" column="addr" type="java.lang.String"/>
+        <property name="saleperson" column="saleperson" type="java.lang.String"/>
+        <property name="activeid" column="activeid" type="java.lang.String"/>
+        <property name="salePercent" column="salePercent" type="java.lang.String"/>
+        <property name="chance" column="chance" type="java.lang.String"/>
+        <property name="eventtypeid" column="eventtypeid" type="java.lang.String"/>
+
+       <many-to-one name="pro" class="com.ht.vo.ProjectInfo" column="projectId"
+       not-found="ignore" lazy="false">
+       </many-to-one>
+
+    </class>
+</hibernate-mapping>

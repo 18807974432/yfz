@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.ht.vo.Module" table="Module">
+        <id name="moduleid" type="int">
+            <generator class="native"></generator>
+        </id>
+        <property name="moduleName" type="string"/>
+        <property name="className" type="string"/>
+        <property name="method" type="string"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+		"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="exam" extends="json" namespace="/" strict-method-invocation="false">
+
+		<action name="researchAction" class="com.ht.action.ResearchAction" >
+			<result name="input">researchExam.jsp</result>
+			<result name="success">researchExam.jsp</result>
+			<result name="list" type="redirectAction">researchAction!list.action</result>
+			<result name="succexam">ExamMasterAdd.jsp?reseachid=${exam.research.reseachid}</result>
+			<result name="examlist">examResult.jsp</result>
+			<result name="examlistSample">examResultSample.jsp</result>
+			<result name="ret_cust" type="redirectAction">cusAction!list.action</result>
+		</action>
+
+	</package>	
+	
+</struts>

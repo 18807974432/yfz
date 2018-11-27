@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.Users" table="Users">
+        <id name="userid" column="userid" type="int">
+            <generator class="native"></generator>
+        </id>
+        <property name="username" column="username" type="string" unique="true"/>
+        <property name="password" column="password" type="string"/>
+        <property name="jobname" column="jobname" type="string"/>
+        <property name="mobile" column="mobile" type="string"/>
+        <property name="email" column="email" type="string"/>
+        <property name="qqcode" column="qqcode" type="string"/>
+        <property name="addr" column="addr" type="string"/>
+        <property name="status" column="status" type="int"/>
+        <property name="demo" column="demo" type="string"/>
+        <many-to-one name="deps" column="depid" class="com.ht.vo.Dep" not-found="ignore"></many-to-one>
+
+    </class>
+</hibernate-mapping>

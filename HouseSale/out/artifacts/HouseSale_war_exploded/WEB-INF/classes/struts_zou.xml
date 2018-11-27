@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <package name="zmx" extends="struts-default" namespace="/">
+        <global-allowed-methods>regex:.*</global-allowed-methods>
+        <action name="PaidTypeAction" class="com.ht.action.PaidTypeAction"></action>
+        <action name="PaidSchemeAction" class="com.ht.action.PaidSchemeAction"></action>
+        <action name="PaidSortAction" class="com.ht.action.PaidSortAction"></action>
+        <action name="BankAction" class="com.ht.action.BankAction"></action>
+        <action name="BankCompanyAction" class="com.ht.action.BankCompanyAction"></action>
+        <action name="TicketAction" class="com.ht.action.TicketAction"></action>
+        <action name="BuyHourseAction" class="com.ht.action.BuyHourseAction"></action>
+        <action name="EarnestMoneyAction" class="com.ht.action.EarnestMoneyAction">
+            <result name="list">EarnestMoney.jsp</result>
+        </action>
+    </package>
+</struts>

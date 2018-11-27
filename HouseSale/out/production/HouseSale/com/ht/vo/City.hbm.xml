@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.City" table="City">
+        <id name="cityid" column="CITYID"/>
+        <property name="cityname" column="CITYNAME"/>
+        <property name="citytype" column="CITYTYPE"/>
+        <property name="py" column="PY"/>
+        <property name="wb" column="WB"/>
+    </class>
+</hibernate-mapping>

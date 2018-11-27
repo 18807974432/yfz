@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.ProjectInfo" table="ProjectInfo">
+        <id name="projectId" column="projectId" type="int">
+            <generator class="native"></generator>
+        </id>
+        <property name="projectName" column="projectName" type="java.lang.String"/>
+        <property name="gardenName" column="gardenName" type="java.lang.String"/>
+        <property name="gardenCode" column="gardenCode" type="java.lang.String"/>
+        <property name="buildArea" column="buildArea" type="java.lang.Double"/>
+        <property name="useArea" column="useArea" type="java.lang.Double"/>
+        <property name="viewArea" column="viewArea" type="java.lang.Double"/>
+        <property name="startTime" column="startTime" type="java.util.Date"/>
+        <property name="endTime" column="endTime" type="java.util.Date"/>
+        <property name="location" column="location" type="java.lang.String"/>
+        <property name="hourseCount" column="hourseCount" type="java.lang.Double"/>
+        <property name="salePrice" column="salePrice" type="java.lang.Double"/>
+        <property name="orderid" column="orderid" type="int"/>
+        <property name="isPaid" column="isPaid" type="java.lang.String"/>
+        <property name="description" column="description" type="java.lang.String"/>
+        <set name="term" cascade="all" lazy="false" inverse="true">
+            <key column="projectId"></key>
+            <one-to-many class="com.ht.vo.TermInfo"/>
+        </set>
+        <set name="cust" cascade="all" lazy="false" inverse="true">
+            <key column="projectId"></key>
+            <one-to-many class="com.ht.vo.CustomerInfo"/>
+        </set>
+    </class>
+</hibernate-mapping>

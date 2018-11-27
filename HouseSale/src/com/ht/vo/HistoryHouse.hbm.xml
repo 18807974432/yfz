@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.HistoryHouse" table="HistoryHouse">
+        <id name="historyid" column="historyid"/>
+        <property name="buyId" column="buyId"/>
+        <property name="custid" column="custid"/>
+        <property name="hourseid" column="hourseid"/>
+        <property name="psid" column="psid"/>
+        <property name="processid" column="processid"/>
+        <property name="processname" column="processname"/>
+        <property name="dicountid" column="dicountid"/>
+        <property name="unitPrice" column="unitPrice"/>
+        <property name="totalMoney" column="totalMoney"/>
+        <property name="bankid" column="bankid"/>
+        <property name="firstMoney" column="firstMoney"/>
+        <property name="bankmoney" column="bankmoney"/>
+        <property name="bankAccrual" column="bankAccrual"/>
+        <property name="bankYear" column="bankYear"/>
+        <property name="bankPercent" column="bankPercent"/>
+        <property name="lawyer" column="lawyer"/>
+        <property name="buyTime" column="buyTime"/>
+        <property name="salePerson" column="salePerson"/>
+        <property name="userid" column="userid"/>
+        <property name="oprtime" column="oprtime"/>
+        <property name="invalid" column="invalid"/>
+        <property name="oprType" column="oprType"/>
+        <property name="hourseid2" column="hourseid2"/>
+        <property name="signTime" column="signTime"/>
+        <property name="bankTime" column="bankTime"/>
+        <property name="cashMoney" column="cashMoney"/>
+    </class>
+</hibernate-mapping>

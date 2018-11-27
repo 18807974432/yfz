@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.CustPlan" table="CustPlan">
+        <id name="planId" column="planId" type="int">
+            <generator class="native"/>
+        </id>
+        <property name="custid" column="custid" type="int"/>
+        <property name="termTypeName" column="termTypeName" type="java.lang.String"/>
+        <property name="hourseid" column="hourseid" type="java.lang.String"/>
+        <property name="modelId" column="modelId" type="java.lang.String"/>
+        <property name="paidtypeid" column="paidtypeid" type="java.lang.String"/>
+        <property name="plantotalPrice" column="plantotalPrice" type="java.lang.Double"/>
+        <property name="planunitPrice" column="planunitPrice" type="java.lang.Double"/>
+        <property name="planArea" column="planArea" type="java.lang.String"/>
+        <property name="priority" column="priority" type="java.lang.String"/>
+        <property name="demo" column="demo" type="java.lang.String"/>
+    </class>
+</hibernate-mapping>

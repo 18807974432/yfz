@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+		"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.il8n.encoding" value="UTF-8"></constant>
+	<constant name="struts.custom.i18n.resources" value="globalMessages"></constant>
+	<!-- 限制上传文件大小,默认大小为2MB -->
+	<constant name="struts.multipart.maxSize" value="1000000" />
+	<!--默认struts2的访问action类的后缀是.action -->
+	<constant name="struts.action.extension" value="action"></constant>
+	<!--  去除浏览器缓存，开发阶段设置成false会比较方便 -->
+	<constant name="struts.serve.static.browserCache" value="false"></constant>
+	<!--  struts.xml修改后系统自动重新加载，开发阶段会比较方便，但是生产环境最好是false -->
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<!-- 打印出更详细的错误信息 -->
+	<constant name="struts.devMode" value="true"></constant>
+	<!-- 设置struts默认主题 -->
+   	<constant name="struts.ui.theme" value="simple" ></constant>
+
+	<!--动态调用方法,请求中使用 !分割，后面写调用的方法名-->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+
+    <include file="struts-default.xml"/>
+
+    <package name="json" extends="json-default">
+        <interceptors>
+            <interceptor name="myIntercetor"
+                         class="com.ht.dao.OARequestProcessor">
+            </interceptor>
+            <interceptor-stack name="default">
+                <interceptor-ref name="json"/>
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="myIntercetor"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="default"/>
+        <global-results>
+            <result name="json" type="json">
+                <param name="contentType">text/html</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+            <result name="login">/login.jsp</result>
+        </global-results>
+    </package>
+	<!-- 每人建一个配置文件，再用include包含进来 -->
+     <include file="xsrStruts.xml"/>
+	 <include file="mdstruts.xml"/>
+     <include file="struts_user.xml"/>
+     <include file="kwStruts.xml"/>
+     <include file="struts_zou.xml"/>
+     <include file="struts-yfz.xml"/>
+
+</struts>

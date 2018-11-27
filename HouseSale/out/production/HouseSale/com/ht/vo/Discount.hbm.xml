@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.Discount" table="discount">
+        <id name="discountId" column="discountId" type="int">
+            <generator class="native"></generator>
+        </id>
+        <property name="disCountName" column="disCountName" type="string"/>
+        <property name="unitPrice" column="unitPrice" type="float"/>
+        <property name="totalPrice" column="totalPrice" type="float"/>
+        <property name="discountPercent" column="discountPercent" type="float"/>
+        <property name="invalid" column="invalid" type="string"/>
+        <property name="description" column="description" type="string"/>
+        <property name="createTime" column="createTime" type="timestamp"/>
+        <property name="username" column="username" type="string"/>
+       <!-- <set name="buy" cascade="all" lazy="true" inverse="true">
+            <key column="discountId" />
+            <one-to-many class="com.ht.vo.BuyHourse"/>
+        </set>-->
+    </class>
+</hibernate-mapping>

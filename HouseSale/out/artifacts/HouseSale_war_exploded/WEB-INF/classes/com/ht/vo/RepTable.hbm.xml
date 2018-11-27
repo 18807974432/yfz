@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.RepTable" table="RepTable">
+        <id name="repid" column="repid"/>
+        <property name="field1" column="field1"/>
+        <property name="field2" column="field2"/>
+        <property name="field3" column="field3"/>
+        <property name="field4" column="field4"/>
+        <property name="field5" column="field5"/>
+        <property name="field6" column="field6"/>
+        <property name="field7" column="field7"/>
+        <property name="field8" column="field8"/>
+        <property name="field9" column="field9"/>
+        <property name="field10" column="field10"/>
+        <property name="field11" column="field11"/>
+        <property name="field12" column="field12"/>
+        <property name="field13" column="field13"/>
+        <property name="field14" column="field14"/>
+        <property name="field15" column="field15"/>
+        <property name="field16" column="field16"/>
+        <property name="field17" column="field17"/>
+        <property name="field18" column="field18"/>
+        <property name="field19" column="field19"/>
+        <property name="field20" column="field20"/>
+        <property name="field21" column="field21"/>
+        <property name="field22" column="field22"/>
+        <property name="field23" column="field23"/>
+        <property name="field24" column="field24"/>
+        <property name="field25" column="field25"/>
+        <property name="field26" column="field26"/>
+        <property name="field27" column="field27"/>
+        <property name="field28" column="field28"/>
+        <property name="field29" column="field29"/>
+        <property name="field30" column="field30"/>
+        <property name="field31" column="field31"/>
+        <property name="field32" column="field32"/>
+        <property name="field33" column="field33"/>
+        <property name="field34" column="field34"/>
+        <property name="field35" column="field35"/>
+        <property name="field36" column="field36"/>
+        <property name="field37" column="field37"/>
+        <property name="field38" column="field38"/>
+        <property name="field39" column="field39"/>
+        <property name="field40" column="field40"/>
+        <property name="field41" column="field41"/>
+        <property name="field42" column="field42"/>
+        <property name="field43" column="field43"/>
+        <property name="field44" column="field44"/>
+        <property name="field45" column="field45"/>
+        <property name="field46" column="field46"/>
+        <property name="field47" column="field47"/>
+        <property name="field48" column="field48"/>
+        <property name="field49" column="field49"/>
+        <property name="field50" column="field50"/>
+    </class>
+</hibernate-mapping>

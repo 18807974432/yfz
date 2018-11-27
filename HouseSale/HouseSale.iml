@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="web" name="Web">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/web/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/web" relative="/" />
+        </webroots>
+      </configuration>
+      <facet type="Struts2" name="Struts 2">
+        <configuration>
+          <fileset id="s2fileset" name="My Fileset " removed="false">
+            <file>file://$MODULE_DIR$/src/struts.xml</file>
+            <file>file://$MODULE_DIR$/src/xsrStruts.xml</file>
+            <file>jar://G:/jar包/struts2-core-2.5.10.jar!/struts-default.xml</file>
+            <file>jar://G:/jar包/struts2-spring-plugin-2.5.1.jar!/struts-plugin.xml</file>
+            <file>jar://G:/jar包/struts2-json-plugin-2.5.1.jar!/struts-plugin.xml</file>
+            <file>file://$MODULE_DIR$/src/mdstruts.xml</file>
+            <file>file://$MODULE_DIR$/src/struts_user.xml</file>
+            <file>file://$MODULE_DIR$/src/kwStruts.xml</file>
+            <file>file://$MODULE_DIR$/src/struts_zou.xml</file>
+            <file>file://$MODULE_DIR$/src/struts-yfz.xml</file>
+          </fileset>
+          <propertiesKeys disabled="false" />
+        </configuration>
+      </facet>
+    </facet>
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset2" name="Spring Application Context (2)" removed="false">
+          <file>file://$MODULE_DIR$/src/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/datasource-context.xml</file>
+          <file>file://$MODULE_DIR$/src/import-hbm.xml</file>
+          <file>file://$MODULE_DIR$/src/import-properties.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
+    <facet type="hibernate" name="Hibernate">
+      <configuration>
+        <datasource-map>
+          <unit-entry name="sessionFactory" value="788d4fd4-8b7d-4fab-84fb-5653365ff095" />
+        </datasource-map>
+        <naming-strategy-map />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="activation-1.1.1" level="project" />
+    <orderEntry type="library" name="javax.mail-api-1.4.4" level="project" />
+    <orderEntry type="library" name="poi-3.9-20121203" level="project" />
+  </component>
+</module>

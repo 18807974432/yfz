@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.WorkProcess" table="WorkProcess">
+        <id name="processid" type="int">
+            <generator class="native"></generator>
+        </id>
+        <property name="buyid" column="buyid" type="int"/>
+        <property name="custid" column="custid" type="int"/>
+        <property name="hourseid" column="hourseid" type="int"/>
+        <property name="flowname" column="flowname" type="java.lang.String"/>
+        <property name="flowNode" column="flowNode" type="java.lang.String"/>
+        <property name="startTime" column="startTime" type="java.util.Date"/>
+        <property name="finishTime" column="finishTime" type="java.util.Date"/>
+        <property name="planMoney" column="planMoney" type="java.lang.Double"/>
+        <property name="factMoney" column="factMoney" type="java.lang.Double"/>
+        <property name="orderid" column="orderid" type="int"/>
+        <property name="status" column="status" type="java.lang.String"/>
+        <property name="userid" column="userid" type="java.lang.String"/>
+        <property name="oprtime" column="oprtime" type="java.util.Date"/>
+        <many-to-one name="buy" class="com.ht.vo.BuyHourse" column="buyid" lazy="false" insert="false" update="false" not-found="ignore"></many-to-one>
+        <many-to-one name="hourseInfo" class="com.ht.vo.HourseInfo" column="custid" lazy="false" insert="false" update="false" not-found="ignore"></many-to-one>
+        <many-to-one name="customerInfo" class="com.ht.vo.CustomerInfo" column="hourseid" lazy="false" insert="false" update="false" not-found="ignore"></many-to-one>
+    </class>
+</hibernate-mapping>

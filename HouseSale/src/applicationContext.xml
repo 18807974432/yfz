@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <!-- 导入资源定义文件 -->
+    <import resource="./import-properties.xml"/>
+    <!-- 导入实体对象应象文件 -->
+    <import resource="./import-hbm.xml"/>
+    <!-- 导入数据源文件 -->
+    <import resource="./datasource-context.xml"/>
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+
+        </property>
+
+        <property name="mappingLocations" ref="hbmappings"/>
+
+        <!--
+        <property name="configLocation"
+            value="classpath:hibernate.cfg.xml">
+        </property>
+        -->
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${db.dialect}</prop>
+                <!--
+                hibernate.hbm2ddl.auto=update表示如果hbm.xml映射文件中的表在数据库中不存在就自动创建
+                hibernate.hbm2ddl.auto=create每次启动程序时都会自动生成hbm.xml映射文件中的表，如果存在，先删除再创建
+                 -->
+                <prop key="hibernate.hbm2ddl.auto">${db.hbm2ddl}</prop>
+                <prop key="hibernate.show_sql">${db.show_sql}</prop>
+                <prop key="hibernate.format_sql">false</prop>
+                <prop key="hibernate.default_batch_fetch_size">16</prop>
+                <prop key="hibernate.jdbc.fetch_size">30</prop>
+                <prop key="hibernate.jdbc.batch_size">25</prop>
+                <!--				<prop key="hibernate.cache.provider_class">-->
+                <!--					org.hibernate.cache.OSCacheProvider-->
+                <!--				</prop>-->
+<!--
+                <prop key="hibernate.query.factory_class">org.hibernate.hql.ast.ASTQueryTranslatorFactory</prop>
+                <prop key="hibernate.transaction.manager_lookup_class">
+                    org.hibernate.transaction.JOTMTransactionManagerLookup
+                </prop>
+                <prop key="jta.UserTransaction">java:comp/env/UserTransaction</prop>
+                <prop key="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</prop>
+-->
+
+            </props>
+        </property>
+
+    </bean>
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- 控制bean -->
+    <aop:config proxy-target-class="true">
+        <aop:advisor
+                pointcut="execution(* com.ht.dao.*DAO*.*(..))"
+                advice-ref="txAdvice"/>
+    </aop:config>
+    <!-- 控制方法 -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+<bean id="dao" class="com.ht.dao.BaseDAO">
+    <property name="sessionFactory">
+        <ref bean="sessionFactory"></ref>
+    </property>
+
+</bean>
+
+</beans>

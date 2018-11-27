@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.TermTypeInfo" table="TermTypeInfo">
+        <id name="termTypeId" column="termTypeId">
+            <generator class="native">
+
+            </generator>
+        </id>
+        <property name="termTypeName" column="termTypeName"/>
+    </class>
+</hibernate-mapping>

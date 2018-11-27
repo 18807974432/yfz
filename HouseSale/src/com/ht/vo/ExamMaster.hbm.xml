@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ht.vo.ExamMaster" table="ExamMaster" >
+        <id name="examid" column="examid" type="int">
+            <generator class="native"></generator>
+        </id>
+        <property name="unitNO" column="unitNO" type="int"/>
+        <property name="unitName" column="unitName" type="java.lang.String"/>
+        <property name="invalid" column="invalid" type="java.lang.String"/>
+        <property name="unitType" column="unitType" type="java.lang.String"/>
+        <property name="optCnt" column="optCnt" type="int"/>
+        <property name="question1" column="question1" type="java.lang.String"/>
+        <property name="question2" column="question2" type="java.lang.String"/>
+        <property name="question3" column="question3" type="java.lang.String"/>
+        <property name="question4" column="question4" type="java.lang.String"/>
+        <property name="question5" column="question5" type="java.lang.String"/>
+        <property name="question6" column="question6" type="java.lang.String"/>
+        <property name="question7" column="question7" type="java.lang.String"/>
+        <property name="question8" column="question8" type="java.lang.String"/>
+        <property name="value1" column="value1" type="java.lang.String"/>
+        <property name="value2" column="value2" type="java.lang.String"/>
+        <property name="value3" column="value3" type="java.lang.String"/>
+        <property name="value4" column="value4" type="java.lang.String"/>
+        <property name="value5" column="value5" type="java.lang.String"/>
+        <property name="value6" column="value6" type="java.lang.String"/>
+        <property name="value7" column="value7" type="java.lang.String"/>
+        <property name="value8" column="value8" type="java.lang.String"/>
+        <property name="userid" column="userid" type="java.lang.String"/>
+        <property name="oprtime" column="oprtime" type="java.util.Date"/>
+        <many-to-one name="research" column="reseachid" class="com.ht.vo.ResearchExam" lazy="false"></many-to-one>
+    </class>
+</hibernate-mapping>

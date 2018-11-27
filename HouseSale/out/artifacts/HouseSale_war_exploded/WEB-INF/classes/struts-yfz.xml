@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+        <package name="page" extends="struts-default">
+            <global-allowed-methods>regex:.*</global-allowed-methods>
+            <action name="HouseModelAction" class="com.ht.action.HouseModelAction" converter="false">
+                <result name="success">/houseModel.jsp</result>
+                <result name="input">/houseModel.jsp</result>
+            </action>
+            <action name="ProjectInfoAction" class="com.ht.action.ProjectInfoAction" converter="false">
+                <result name="success">/projectInfo.jsp</result>
+                <result name="input">/projectInfo.jsp</result>
+            </action>
+            <action name="TermInfoAction" class="com.ht.action.TermInfoAction" converter="false">
+                <result name="success">/termInfo.jsp</result>
+                <result name="input">/termInfo.jsp</result>
+            </action>
+            <action name="UploadAction" class="com.ht.action.UploadAction" converter="false">
+                <result name="input">/upload.jsp</result>
+                <result name="success">/uploacsuc.jsp</result>
+            </action>
+            <action name="HourseInfoAction" class="com.ht.action.HourseInfoAction">
+                <result name="list">/HourseInfo.jsp</result>
+                <result name="listinit" type="redirectAction">HourseInfoAction!list.action</result>
+            </action>
+        </package>
+</struts>

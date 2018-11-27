@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="userzzx" extends="json" namespace="/">
+        <global-allowed-methods>regex:.*</global-allowed-methods>
+
+        <action name="depAction" class="com.ht.action.DepAction">
+            <result name="input">/dep.jsp</result>
+            <result name="success">/dep.jsp</result>
+            <result name="list1">/depSel.jsp</result>
+            <result name="list" type="redirectAction">depAction!list.action</result>
+        </action>
+        <action name="jobsAction" class="com.ht.action.JobsAction">
+            <result name="input">/jobs.jsp</result>
+            <result name="success">/jobs.jsp</result>
+            <result name="list" type="redirectAction">jobsAction!list.action</result>
+        </action>
+        <action name="usersAction" class="com.ht.action.UsersAction">
+            <result name="input">/users.jsp</result>
+            <result name="success">/users.jsp</result>
+            <result name="list" type="redirectAction">usersAction!list.action</result>
+            <result name="login" >login.jsp</result>
+            <result name="pwd">modifypwd.jsp</result>
+            <result name="log">main.jsp</result>
+            <result name="userlog">/userLogPrint.jsp</result>
+            <result name="ulist">/userlist.jsp</result>
+        </action>
+        <action name="accAction" class="com.ht.action.AccModuleAction">
+            <result name="input">/userAccess.jsp</result>
+            <result name="success">/userAccess.jsp</result>
+            <result name="list" type="redirectAction">accAction!list.action?username=$(username)</result>
+        </action>
+    </package>
+</struts>
