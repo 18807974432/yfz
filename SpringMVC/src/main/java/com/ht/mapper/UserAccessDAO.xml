@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.mapper.UserAccessDAO">
+    <select id="findAll" resultType="UserAccessVo">
+        select * from usersAccess u,sysaccess s where u.sysId=s.sysId
+    </select>
+    <select id="findByUserId" parameterType="int" resultType="UserAccessVo">
+        select * from usersAccess u,sysaccess s where u.sysId=s.sysId and u.userId=#{userId}
+    </select>
+    <select id="isUserAcc" parameterType="UserAccessVo" resultType="UserAccessVo">
+        select * from usersAccess where userId=#{userId} and sysId=#{sysId}
+    </select>
+    
+    <insert id="add" parameterType="UserAccessVo">
+        insert into usersAccess(sysId,userId) values (#{sysId}.#{userId})
+    </insert>
+
+    <delete id="deleteById" parameterType="UserAccessVo">
+        delete from usersAccess where userId=#{userId} and sysId=#{sysId}
+    </delete>
+</mapper>

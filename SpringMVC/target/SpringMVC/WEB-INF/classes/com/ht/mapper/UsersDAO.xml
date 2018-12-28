@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.mapper.UsersDAO">
+    <select id="listAll" resultType="usersVo">
+      <![CDATA[
+        select * from users
+      ]]>
+    </select>
+    <resultMap id="userMap" type="com.ht.vo.UsersVo">
+        <id column="userId" property="userId"/>
+        <result property="userName" column="userName"/>
+        <result column="name" property="name"/>
+        <result property="password" column="password"/>
+        <result column="age" property="age"/>
+        <result property="sex" column="sex"/>
+        <result column="status" property="status"/>
+        <result property="remark" column="remark"/>
+        <result column="checkName" property="checkName"/>
+    </resultMap>
+    <resultMap id="oneToOne" type="com.ht.vo.UsersVo">
+        <id property="userId" column="userId"/>
+        <result property="userName" column="userName"/>
+        <result column="name" property="name"/>
+        <result property="password" column="password"/>
+        <result column="age" property="age"/>
+        <result property="sex" column="sex"/>
+        <result column="job" property="job"/>
+        <result column="status" property="status"/>
+        <result property="remark" column="remark"/>
+        <result column="depId" property="depId"/>
+        <result property="depName" column="depName"/>
+
+        <association property="check" javaType="com.ht.vo.CheckVo">
+            <id column="userId" property="userId"/>
+            <result property="checkName" column="checkName"/>
+        </association>
+    </resultMap>
+    <select id="userAnddep" resultMap="oneToOne">
+        <![CDATA[
+          select u.*,d.depName,h.checkName from users u inner join dep d on u.depId=d.depId
+          left join checks h on u.checkId=h.checkId
+        ]]>
+    </select>
+
+    <select id="findAllUsers" resultType="usersVo">
+        <![CDATA[
+			select u.*,d.depName from users u left join dep d on u.depId=d.depId
+		]]>
+    </select>
+
+    <insert id="add" parameterType="usersVo">
+        <![CDATA[
+          insert into users(userName,password,name,depId,job,checkId,status,age,sex,remark)
+          values (#{userName},#{password},#{name},#{depId},#{job},#{checkId},#{status},#{age},#{sex},#{remark})
+        ]]>
+    </insert>
+
+    <select id="login" parameterType="usersVo" resultType="usersVo">
+        <![CDATA[
+          select * from users where userName=#{userName} and password=#{password}
+        ]]>
+    </select>
+
+    <select id="findById" parameterType="int" resultType="usersVo">
+        <![CDATA[
+          select * from users where userId=#{userId}
+        ]]>
+    </select>
+
+    <select id="findByName" parameterType="string" resultType="usersVo">
+        <![CDATA[
+          select * from users where userName=#{userName}
+        ]]>
+    </select>
+
+    <select id="count" resultType="int">
+        <![CDATA[
+          select count(*)  from users
+        ]]>
+    </select>
+
+    <select id="countByCondition" resultType="int">
+        <![CDATA[
+          select count(*) from users
+        ]]>
+        <where>
+            <if test="users.userName!=null and users.userName!=''">
+                and userName like concat('%',#{users.userName},'%')
+            </if>
+            <if test="users.depId>0">
+                and depId=#{users.depId}
+            </if>
+            <if test="users.sex!=null and users.sex!=''">
+                and sex=#{users.sex}
+            </if>
+        </where>
+    </select>
+    
+    <select id="searchByCondition" resultType="usersVo">
+        <![CDATA[
+          select u.*,d.depName from users u inner join dep d on u.depId=d.depId where 1=1
+        ]]>
+        <if test="users.userName!=null and users.userName!=''">
+          and userName like concat('%',#{users.userName},'%')
+        </if>
+        <if test="users.sex !=null and users.sex!=''">
+          and sex=#{users.sex}
+        </if>
+        <if test="users.depId>0">
+            and d.depId=#{users.depId}
+        </if>
+        limit #{pager.startRow},#{pager.pageRow}
+    </select>
+
+    <select id="listByPage" parameterType="com.ht.base.PageObject" resultType="usersVo">
+        <![CDATA[
+          select u.*,d.depName from users u ,dep d where u.depId=d.depId order by depid limit #{pager.startRow},#{pager.pageRow}
+        ]]>
+    </select>
+
+    <update id="update" parameterType="usersVo">
+        <![CDATA[
+          update users set userName=#{userName},name=#{name},sex=#{sex},age=#{age},job=#{job},
+            status=#{status},remark=#{remark} where userId=#{userId}
+        ]]>
+    </update>
+
+    <delete id="delete" parameterType="int">
+        delete from users where userId=#{id}
+    </delete>
+</mapper>
+ 
