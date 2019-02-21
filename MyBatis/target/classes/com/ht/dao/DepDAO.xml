@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- mybatis的dtd文件 -->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.DepDAO">
+    <resultMap id="depAndusers" type="com.ht.vo.DepVo">
+        <id column="depId" property="depId"/>
+        <result column="depName" property="depName"/>
+        <collection property="usersList" javaType="list" ofType="usersVo">
+            <id column="userId" property="userId"/>
+            <result column="userName" property="userName"/>
+            <result column="password" property="password"/>
+            <result property="name" column="name"/>
+            <result property="age" column="age"/>
+            <result column="sex" property="sex"/>
+            <result column="job" property="job"/>
+            <result property="status" column="status"/>
+            <result column="remark" property="remark"/>
+        </collection>
+    </resultMap>
+    <!-- 查询所有部门 -->
+    <select id="findAllDep" resultType="com.ht.vo.DepVo">
+		<![CDATA[
+			select * from dep
+		]]>
+	</select>
+</mapper>

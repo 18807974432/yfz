@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- mybatis核心配置文件的dtd -->
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 引用jdbc配置文件 -->
+    <properties resource="jdbc.properties" />
+    
+	<settings>
+		<setting name="cacheEnabled" value="true" />
+		<setting name="useColumnLabel" value="true" />
+		<setting name="useGeneratedKeys" value="true" />
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+		<!-- 打印SQL语句 -->
+		<setting name="logImpl" value="STDOUT_LOGGING" />
+	</settings>
+    <!-- 使用package为整个包中所有的JAVABEAN指定别名，typeAlias为一个类指定别名，这2个参数2选一 -->
+	<typeAliases>
+		<!-- 配置JAVABEAN的短名称，使用时，首字母不区分大小写
+			alias=别名
+			type=类的全路径（包含了包名）
+		 -->
+		<typeAlias alias="DepVo" type="com.ht.vo.DepVo" />		
+		<typeAlias alias="UsersVo" type="com.ht.vo.UsersVo" />
+		<typeAlias alias="CheckVo" type="com.ht.vo.CheckVo" />
+	</typeAliases> 
+	<!-- 
+	<typeAliases> 
+		<package name="com.ht.vo"/>
+	</typeAliases>    
+	 -->
+	    
+    <!--环境配置，配置的是开发者模式(development),工作模式（work） -->
+    <environments default="development">
+        <environment id="development">
+        	<!-- 声明jdbc事务处理 type=[JDBC,MANAGED]-->
+            <transactionManager type="JDBC"/>
+            <!-- 数据源：数据库连接池type=[ UNPOOLED | POOLED | JNDI ]-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driverClassName}"/>
+                <property name="url" value="${jdbc.driverUrl}"/>
+                <property name="username" value="${jdbc.user}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- mappers可以一个一指定，也可以通过包一次性指定（二选一） -->
+   	<!-- 引用Mapper接口的sql映射文件 -->
+    <!-- 
+    <mappers>
+        <mapper resource="com/ht/mapper/EmpDAO.xml"/> 
+    </mappers>
+     -->
+    <mappers>
+    	<package name="com/ht/dao"/>
+    </mappers>
+</configuration>
